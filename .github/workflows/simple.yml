@@ -16,6 +16,8 @@ jobs:
         run: ls -lha
   run-python-command:
     runs-on: ubuntu-latest
+    # depends on run shell command
+    needs: ["run-shell-command"]
     steps:
       - name: run python command
         run: |
