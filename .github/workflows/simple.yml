@@ -7,11 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo hello world
-        run: eccho "Hello world!"
+        run: echo "Hello world!"
       - name: check node versions
         run: |
           node -v
           npm -v
       - name: display current working directory
         run: ls -lha
-
+  run-python-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run python command
+        run: |
+          import platform
+          print (platform.processor())
+        shell: python

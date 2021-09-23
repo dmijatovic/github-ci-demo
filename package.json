@@ -1,0 +1,20 @@
+{
+  "name": "github-ci-demo",
+  "version": "1.0.0",
+  "description": "This repo is testing some github action approaches based on [this Udemy training](https://udemy.com/course/github-actions/learn)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmijatovic/github-ci-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmijatovic/github-ci-demo/issues"
+  },
+  "homepage": "https://github.com/dmijatovic/github-ci-demo#readme"
+}
