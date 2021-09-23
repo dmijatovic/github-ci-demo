@@ -1,0 +1,14 @@
+name: Shell commands on schedule
+
+on:
+  schedule:
+    # run schedule every 5 minute
+    # check with crontab guru
+    - cron: "*/5 * * * *"
+
+jobs:
+  run-schell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print time
+        run: date
