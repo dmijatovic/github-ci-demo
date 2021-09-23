@@ -1,0 +1,10 @@
+name: Shell commands on pull request
+
+on: pull_request
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo message
+        run: echo "This is pull request"
