@@ -5,6 +5,7 @@ on:
     # do not run on these branches
     branches-ignore:
       - master
+      - dev
 
 jobs:
   run-shell-command:
