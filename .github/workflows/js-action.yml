@@ -1,9 +1,11 @@
-name: Javascrip action example
+name: Javascript action example
 
 on:
   push:
+    # run on push only to release branches
+    # for example relase/v1, release/v2
     branches:
-      - dev
+      - release/**
 
 jobs:
   run-js-action:
@@ -17,4 +19,5 @@ jobs:
           who-to-greet: Dusan
       - name: Log greeting time
         # call out action output (in action documentation)
+        # we use id to reffer to step by id
         run: echo "${{ steps.greetAction.outputs.time }}"

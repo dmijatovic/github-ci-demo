@@ -1,6 +1,10 @@
 name: Shell commands on push
 
-on: push
+on:
+  push:
+    # do not run on these branches
+    branches-ignore:
+      - master
 
 jobs:
   run-shell-command:
@@ -13,14 +17,25 @@ jobs:
           node -v
           npm -v
       - name: display current working directory
+        run: pwd && ls -lha
+      # checkout repo code
+      - name: Checkout repo
+        uses: actions/checkout@v1
+      - name: display files after checkout
         run: ls -lha
-  run-python-command:
-    runs-on: ubuntu-latest
-    # depends on run shell command
-    needs: ["run-shell-command"]
-    steps:
-      - name: run python command
-        run: |
-          import platform
-          print (platform.processor())
-        shell: python
+      - name: Get commit SHA
+        run: echo $GITHUB_SHA
+      - name: Get repository
+        run: echo $GITHUB_REPOSITORY
+      - name: show all env variables in VM
+        run: env
+  # run-python-command:
+  #   runs-on: ubuntu-latest
+  #   # depends on run shell command
+  #   needs: ["run-shell-command"]
+  #   steps:
+  #     - name: run python command
+  #       run: |
+  #         import platform
+  #         print (platform.processor())
+  #       shell: python
