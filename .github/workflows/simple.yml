@@ -1,0 +1,17 @@
+name: Shell Commands
+
+on: push
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo hello world
+        run: echo "Hello world!"
+      - name: check node versions
+        run: |
+          node -v
+          npm -v
+      - name: display current working directory
+        run: ls -lha
+
