@@ -1,20 +1,18 @@
 {
-  "name": "github-ci-demo",
-  "version": "1.0.0",
-  "description": "This repo is testing some github action approaches based on [this Udemy training](https://udemy.com/course/github-actions/learn)",
-  "main": "index.js",
+  "name": "vue-test",
+  "version": "0.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dmijatovic/github-ci-demo.git"
+  "dependencies": {
+    "vue": "^3.2.13"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dmijatovic/github-ci-demo/issues"
-  },
-  "homepage": "https://github.com/dmijatovic/github-ci-demo#readme"
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.9.0",
+    "typescript": "^4.4.3",
+    "vite": "^2.5.10",
+    "vue-tsc": "^0.3.0"
+  }
 }
