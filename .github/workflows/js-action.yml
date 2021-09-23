@@ -1,7 +1,9 @@
 name: Javascrip action example
 
-on: push
-  branch: dev
+on:
+  push:
+    branches:
+      - dev
 
 jobs:
   run-js-action:
