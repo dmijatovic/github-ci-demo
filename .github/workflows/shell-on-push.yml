@@ -1,6 +1,10 @@
 name: Shell commands on push
 
-on: push
+on:
+  push:
+    # do not run on these branches
+    branches-ignore:
+      - master
 
 jobs:
   run-shell-command:
@@ -13,7 +17,7 @@ jobs:
           node -v
           npm -v
       - name: display current working directory
-        run: ls -lha
+        run: pwd && ls -lha
   run-python-command:
     runs-on: ubuntu-latest
     # depends on run shell command
