@@ -18,13 +18,18 @@ jobs:
           npm -v
       - name: display current working directory
         run: pwd && ls -lha
-  run-python-command:
-    runs-on: ubuntu-latest
-    # depends on run shell command
-    needs: ["run-shell-command"]
-    steps:
-      - name: run python command
-        run: |
-          import platform
-          print (platform.processor())
-        shell: python
+      # checkout repo code
+      - name: Checkout repo
+        uses: actions/checkout@v1
+      - name: display files after checkout
+        run: ls -lha
+  # run-python-command:
+  #   runs-on: ubuntu-latest
+  #   # depends on run shell command
+  #   needs: ["run-shell-command"]
+  #   steps:
+  #     - name: run python command
+  #       run: |
+  #         import platform
+  #         print (platform.processor())
+  #       shell: python
