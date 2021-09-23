@@ -1,13 +1,15 @@
+# more info about on schdule actions
+# https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#onschedule
 name: Shell commands on schedule
 
 on:
   schedule:
     # run schedule every 5 minute
-    # check with crontab guru
-    - cron: "*/5 * * * *"
+    # check with crontab guru https://crontab.guru/#*/5_*_*_*_*
+    - cron: '*/5 * * * *'
 
 jobs:
-  run-schell-command:
+  run-shell-command:
     runs-on: ubuntu-latest
     steps:
       - name: print time
