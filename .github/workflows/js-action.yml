@@ -1,0 +1,18 @@
+name: Javascrip action example
+
+on: push
+  branch: dev
+
+jobs:
+  run-js-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS action
+        id: greetAction
+        uses: actions/hello-world-javascript-action@v1
+        # provide parameters to be used by action
+        with:
+          who-to-greet: Dusan
+      - name: Log greeting time
+        # call out action output (in action documentation)
+        run: echo "${{ steps.greetAction.outputs.time }}"
