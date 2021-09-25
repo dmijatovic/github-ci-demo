@@ -2,7 +2,8 @@ name: Docker containers
 
 on:
   push:
-    - dev
+    branches:
+      - dev
 
 jobs:
   node-docker:
