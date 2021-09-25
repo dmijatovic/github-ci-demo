@@ -3,7 +3,7 @@ name: Function expressions
 on:
   push:
     branches:
-      - dev
+      - never-run
 
 jobs:
   functions:
