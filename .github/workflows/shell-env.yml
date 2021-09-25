@@ -1,0 +1,39 @@
+name: ENV Variables
+
+on:
+  push:
+    branches:
+      - dev
+      - 'feature/*'
+      - '!feature/test'
+
+
+env:
+  GLOBAL_ENV: Avaliable in all jobs
+
+jobs:
+  log-env:
+    runs-on: ubuntu-latest
+    env:
+      JOB1_ENV: Available in log-end job
+    steps:
+      - name: Log ENV variables
+        env:
+          STEP1_ENV: Available in first step of log-end
+        run: |
+          echo "GLOBAL_ENV: ${GLOBAL_ENV}"
+          echo "JOB1_ENV: ${JOB1_ENV}"
+          echo "STEP1_ENV: ${STEP1_ENV}"
+      - name: Step 2 of log-env
+        run: |
+          echo "GLOBAL_ENV: ${GLOBAL_ENV}"
+          echo "JOB1_ENV: ${JOB1_ENV}"
+          echo "STEP1_ENV: ${STEP1_ENV}"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: job 2 - step 1
+        run: |
+          echo "GLOBAL_ENV: ${GLOBAL_ENV}"
+          echo "JOB1_ENV: ${JOB1_ENV}"
+          echo "STEP1_ENV: ${STEP1_ENV}"
