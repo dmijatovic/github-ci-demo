@@ -22,7 +22,6 @@ jobs:
     steps:
       - name: Post user
         run: |
-          echo "posting user to api"
           "curl -X POST http://localhost:3001/api/user -H 'Content-Type: application/json' -d '{\"username\":\"Dusan\", \"address\":\"Clausstraat 154\"}'"
 
       - name: Get users
