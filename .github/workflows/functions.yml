@@ -16,4 +16,4 @@ jobs:
           echo ${{ contains('hello','ll') }}
           echo ${{ startsWith('hello','hel')}}
           echo ${{ endsWith('hello','lo')}}
-          echo ${{ format('Hello {0} {1}', "String only user","!!!") }}
+          echo ${{ format('Hello {0} {1}', 'String only user','!!!') }}
