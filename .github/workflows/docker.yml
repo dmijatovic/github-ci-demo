@@ -11,7 +11,8 @@ jobs:
     container:
       - image: node:v16-alpine
         env:
-          - ENV:'production'
+          - name: ENVIRONMENT
+            value: production'
     steps:
       - name: log version
         run: |
