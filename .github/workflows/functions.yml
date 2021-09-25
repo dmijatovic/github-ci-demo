@@ -14,6 +14,6 @@ jobs:
       - name: Print fn test
         run: |
           echo ${{ contains('hello','ll') }}
-          echo ${{ startWith('hello','hel')}}
+          echo ${{ startsWith('hello','hel')}}
           echo ${{ endsWith('hello','lo')}}
           echo ${{ format('Hello {0} {1}', $USER,"!!!") }}
