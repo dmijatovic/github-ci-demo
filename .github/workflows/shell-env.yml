@@ -3,7 +3,7 @@ name: ENV Variables
 on:
   push:
     branches:
-      - dev
+      # - dev
       - 'feature/*'
       - '!feature/test'
 

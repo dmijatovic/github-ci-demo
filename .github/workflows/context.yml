@@ -1,0 +1,16 @@
+name: Context list
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  log-contexts:
+    - name: Log contexts
+      runs-on: ubuntu-latest
+      steps:
+        - name: Log Github context
+          env:
+            GITHUB_CONTEXT: ${{toJson(github)}}
+          run: echo "$GITHUB_CONTEXT"
