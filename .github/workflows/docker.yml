@@ -3,7 +3,7 @@ name: Docker containers
 on:
   push:
     branches:
-      - dev
+      - dev-never-run
 
 jobs:
   node-docker:
