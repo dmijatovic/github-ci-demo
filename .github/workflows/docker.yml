@@ -9,9 +9,9 @@ jobs:
   node-docker:
     runs-on: ubuntu-latest
     container:
-      - image: node:16-alpine
-        env:
-          ENVIRONMENT: production
+      image: node:16-alpine
+      env:
+        ENVIRONMENT: production
     steps:
       - name: log version
         run: |
