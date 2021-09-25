@@ -9,7 +9,7 @@ jobs:
   functions:
     runs-on: ubuntu-latest
     env:
-      USER: {{github.actor}}
+      USER: ${{github.actor}}
     steps:
       - name: Print fn test
         run: |
