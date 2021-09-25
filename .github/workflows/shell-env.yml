@@ -10,7 +10,8 @@ on:
 
 env:
   GLOBAL_ENV: Avaliable in all jobs
-  ENCRIPTED_ENV: ${{secretes.MY_TEST_KEY}}
+  ENCRIPTED_ENV: ${{secrets.MY_TEST_KEY}}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 jobs:
   log-env:
