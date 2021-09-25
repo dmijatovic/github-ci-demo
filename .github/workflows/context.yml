@@ -3,7 +3,7 @@ name: Context list
 on:
   push:
     branches:
-      - dev
+      - skip-this
 
 jobs:
   log-contexts:
