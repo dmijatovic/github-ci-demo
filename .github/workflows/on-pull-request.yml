@@ -1,20 +1,25 @@
 name: On pull request to master
 
 on:
-  pull:
+  pull_request:
     branches:
       - master
 
 jobs:
-  test:
+  test-vue:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
+      - name: checkout
         uses: actions/checkout@v2
-      - name: install dependencies
-        run: npm install --silent
+      - name: install Node v16
+        uses: actions/setup-node@v2
+        with:
+          - node-version: 16
+      - name: install dependecies
+        run: npm ci
       - name: run unit tests
         run: npm run test:coverage
+
   build:
     runs-on: ubuntu-latest
     needs: ["test"]

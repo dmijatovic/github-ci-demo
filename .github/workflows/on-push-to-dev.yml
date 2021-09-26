@@ -11,7 +11,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      - name: install Node v16
+        uses: actions/setup-node@v2
+        with:
+          - node-version: 16
       - name: install dependecies
-        run: npm install --silent
+        run: npm ci
       - name: run unit tests
         run: npm run test:coverage
