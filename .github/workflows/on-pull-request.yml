@@ -1,0 +1,23 @@
+name: On pull request to master
+
+on:
+  pull:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - name: install dependencies
+        run: npm install --silent
+      - name: run unit tests
+        run: npm run test:coverage
+  build:
+    runs-on: ubuntu-latest
+    needs: ["test"]
+    steps:
+      - name: build frontend
+        run: npm run build

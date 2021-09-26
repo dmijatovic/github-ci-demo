@@ -1,0 +1,17 @@
+name: Test frontend on each push to dev branch
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  test-vue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: action/checkout@v2
+      - name: install dependecies
+        run: npm install --silent
+      - name: run unit tests
+        run: npm run test:coverage
