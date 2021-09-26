@@ -11,7 +11,7 @@ try {
 
   const octokit = new github.getOctokit(token);
 
-  console.log("octokit.rest.issues..", JSON.stringify(octokit.rest.issues));
+  // console.log("octokit.rest.issues..", JSON.stringify(octokit.rest.issues));
 
   core.notice("creating issue");
   // async - promise based request
@@ -25,8 +25,9 @@ try {
     })
     .then((resp) => {
       core.notice("issue created");
+      console.log("resp...", resp);
       // provide issue object as stringified json
-      core.setOutput("issue", JSON.stringify(response.data, null, 2));
+      core.setOutput("issue", JSON.stringify(resp, null, 2));
     })
     .catch((e) => {
       core.warning("issue not created!");
