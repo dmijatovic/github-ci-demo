@@ -7,7 +7,7 @@
     "serve": "vite preview",
     "test": "jest src",
     "test:watch": "jest --watch src",
-    "make:action": "ncc build ./.github/actions/hello/index.js -m -o ./.github/actions/hello/dist"
+    "make:action": "ncc build ./.github/actions/hello/index.js -m -o ./.github/actions/hello/use"
   },
   "dependencies": {
     "vue": "^3.2.13"
