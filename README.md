@@ -36,7 +36,7 @@ Use vue testing library. NOT AVALIABLE FOR Vue v3
 
 npm i -D jest @types/jest ts-jest vue-jest@next @vue/test-utils@next
 
-npm i -D jest @types/jest @vue/test-utils@next @vue/vue3-jest
+npm i -D jest @types/jest ts-jest @vue/test-utils@next @vue/vue3-jest
 
 
 ```
