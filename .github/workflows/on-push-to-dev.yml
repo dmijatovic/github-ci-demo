@@ -11,6 +11,13 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      - name: cache node_modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          # create unique cache key to reload every time we change dependencies
+          key: node-${{runner.os}}-${{hashFiles('**/package-lock-json')}}
+          restore-key: node-${{runner.os}}-
       - name: install Node v16
         uses: actions/setup-node@v2
         with:
