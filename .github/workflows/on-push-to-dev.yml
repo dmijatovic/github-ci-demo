@@ -16,7 +16,7 @@ jobs:
         with:
           path: ~/.npm
           # create unique cache key to reload every time we change dependencies
-          key: node-v16-${{runner.os}}-${{hashFiles('**/package-lock-json')}}
+          key: node-v16-${{runner.os}}-${{hashFiles('**/package-lock.json')}}
           restore-keys: |
             node-v16-${{runner.os}}-
       - name: install Node v16
