@@ -7,7 +7,7 @@ try {
   const body = core.getInput("body");
   const assignTo = core.getInput("assign-to");
 
-  const octokit = new github.GitHub(token);
+  const octokit = new github.getOctokit(token);
 
   core.notice("creating issue");
   // async - promise based request
