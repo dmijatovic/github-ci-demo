@@ -3,10 +3,13 @@
 name: Shell commands on schedule
 
 on:
-  schedule:
-    # run schedule every 5 minute
-    # check with crontab guru https://crontab.guru/#*/5_*_*_*_*
-    - cron: "0/5 * * * *"
+  push:
+    branches:
+      - never-run
+  # schedule:
+  #   # run schedule every 5 minute
+  #   # check with crontab guru https://crontab.guru/#*/5_*_*_*_*
+  #   - cron: "0/5 * * * *"
 
 jobs:
   run-shell-command:
