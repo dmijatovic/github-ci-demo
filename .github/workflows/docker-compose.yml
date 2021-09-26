@@ -3,7 +3,7 @@ name: Multiple docker containers
 on:
   push:
     branches:
-      - dev
+      - skip-this
 
 jobs:
   node-api:

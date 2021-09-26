@@ -16,6 +16,18 @@ The actions can be written in Javascript., for some other programming language y
 
 When reffering to action you need to specify branch of the repo or version. Version is prefferd as it is more stable than a branch.
 
+### Custom private actions
+
+You can create private action in your project. This action is only available for this project. The custom private actions are stored in ./github/actions folder.
+
+```bash
+# install actions packages
+npm i -D @actions/core @actions/github
+npm i -D @vercel/ncc
+```
+
+NOTE! The action will require these modules to run. You can install everything first or you can use @vercel/ncc module to compile the action and have single file that can run in github action.
+
 ## Vue 3 + Typescript + Vite
 
 This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.

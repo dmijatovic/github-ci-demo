@@ -1,0 +1,14 @@
+name: Hello world custom private action
+author: Dusan Mijatovic
+description: Hello world demo action
+inputs:
+  who-to-greet:
+    description: Provide info who to greet with hello
+    required: true
+    default: Dusan
+outputs:
+  time:
+    description: Logs the time of greeting
+runs:
+  using: node16
+  main: dist/index.js
