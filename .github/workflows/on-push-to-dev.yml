@@ -1,4 +1,4 @@
-name: On push to dev branch run unit tests
+name: DEV_TEST
 
 on:
   push:
