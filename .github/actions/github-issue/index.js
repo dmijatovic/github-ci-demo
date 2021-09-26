@@ -7,6 +7,8 @@ try {
   const body = core.getInput("body");
   const assignTo = core.getInput("assign-to");
 
+  core.notice(`github token: ${token}`);
+
   const octokit = new github.getOctokit(token);
 
   core.notice("creating issue");
