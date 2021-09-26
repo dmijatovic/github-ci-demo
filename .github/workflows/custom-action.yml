@@ -19,4 +19,5 @@ jobs:
         with:
           who-to-greet: "Custom Action For This Project"
       - name: Log action time
-        run: echo "Time ${{steps.hello.outputs.time}}"
+        run: |
+          echo "Time: ${{steps.hello.outputs.time}}"

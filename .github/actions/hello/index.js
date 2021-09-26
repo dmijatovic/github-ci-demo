@@ -12,7 +12,7 @@ try {
   // define output
   const time = new Date().toISOString();
   // first param is output variable name
-  core.setOutput("time:", time);
+  core.setOutput("time", time);
   // log info
   console.log("github:", JSON.stringify(github, null, 2));
 } catch (e) {
