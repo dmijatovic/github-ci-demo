@@ -12,4 +12,4 @@ outputs:
 runs:
   # only 2 options: node12 or docker
   using: node12
-  main: dist/index.js
+  main: "dist/index.js"
