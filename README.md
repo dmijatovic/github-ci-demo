@@ -48,9 +48,14 @@ Use vue testing library. NOT AVALIABLE FOR Vue v3
 
 ```bash
 
-npm i -D jest @types/jest ts-jest vue-jest@next @vue/test-utils@next
-
 npm i -D jest @types/jest ts-jest @vue/test-utils@next @vue/vue3-jest
 
+```
 
+## Semantic Release
+
+This tools enables automatic version control and CHANGELOG file generation based on the commit messages. Commit message do need to be in specific format in order to automate this process. For [more info see here](https://github.com/semantic-release/semantic-release/tree/685d2b5455bd55611e0581672a899631f06beb90)
+
+```bash
+npm i -D semantic-release
 ```

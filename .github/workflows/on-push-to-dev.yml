@@ -11,6 +11,14 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      - name: cache node_modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          # create unique cache key to reload every time we change dependencies
+          key: node-v16-${{runner.os}}-${{hashFiles('**/package-lock.json')}}
+          restore-keys: |
+            node-v16-${{runner.os}}-
       - name: install Node v16
         uses: actions/setup-node@v2
         with:
@@ -19,3 +27,9 @@ jobs:
         run: npm ci
       - name: run unit tests
         run: npm run test:coverage
+      - name: upload test coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: code coverage
+          path: coverage
+          retention-days: 5
