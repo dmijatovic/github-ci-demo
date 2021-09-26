@@ -32,3 +32,4 @@ jobs:
         with:
           name: code coverage
           path: coverage
+          retention-days: 5
