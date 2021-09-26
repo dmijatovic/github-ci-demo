@@ -8,9 +8,7 @@ try {
   const assignTo = core.getInput("assign-to");
 
   core.notice(`github token: ${token}`);
-
   const octokit = new github.getOctokit(token);
-
   // console.log("octokit.rest.issues..", JSON.stringify(octokit.rest.issues));
 
   core.notice("creating issue");
@@ -25,9 +23,9 @@ try {
     })
     .then((resp) => {
       core.notice("issue created");
-      console.log("resp...", resp);
+      // console.log("resp...", resp);
       // provide issue object as stringified json
-      core.setOutput("issue", JSON.stringify(resp, null, 2));
+      core.setOutput("issue", JSON.stringify(resp.data, null, 2));
     })
     .catch((e) => {
       core.warning("issue not created!");
