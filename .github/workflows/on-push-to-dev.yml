@@ -1,4 +1,4 @@
-name: Test frontend on each push to dev branch
+name: On push to dev branch run unit tests
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - dev
 
 jobs:
-  test-vue:
+  unit-tests-vue:
     runs-on: ubuntu-latest
     steps:
       - name: checkout

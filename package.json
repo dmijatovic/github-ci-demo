@@ -1,6 +1,6 @@
 {
-  "name": "vue-test",
-  "version": "0.0.0",
+  "name": "vue3-vite-test",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
