@@ -3,7 +3,7 @@ name: Custom private action
 on:
   push:
     branches:
-      - dev
+      - never-run
 
 jobs:
   custom-action:
