@@ -9,7 +9,7 @@ try {
   const assignTo = core.getInput("assign-to");
 
   // use to communicate to Github (instead of api with fetch/axios)
-  const octokit = new GitHub.GitHub(token);
+  const octokit = new GitHub(token);
   // create new issue
   const resp = octokit.issues.create({
     owner: github.context.repo.owner,
