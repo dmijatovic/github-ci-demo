@@ -1,3 +1,5 @@
+![](https://github.com/dmijatovic/github-ci-demo/workflows/DEV_TEST/badge.svg?branch=dev&event=push)
+
 # Github actions
 
 This repo is testing some github action approaches based on [this Udemy training](https://udemy.com/course/github-actions/learn)
