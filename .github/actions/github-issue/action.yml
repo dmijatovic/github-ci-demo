@@ -1,0 +1,21 @@
+name: Create github issue
+author: Dusan Mijatovic
+description: This action creates new issue on github
+inputs:
+  token:
+    description: Github token
+    required: true
+  title:
+    description: Issue title
+    required: true
+  body:
+    description: Issue body
+  assign-to:
+    description: Assign issue to, provide comma seprated values as string
+outputs:
+  issue:
+    description: The issue object as json string
+runs:
+  # only 2 options: node12 or docker
+  using: node12
+  main: use/index.js

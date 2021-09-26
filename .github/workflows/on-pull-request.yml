@@ -1,0 +1,34 @@
+name: On pull request to master
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  unit-tests-vue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: install Node v16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: install dependecies
+        run: npm ci
+      - name: run unit tests
+        run: npm run test:coverage
+      - name: build project
+        if: github.event_name === 'push'
+        run: npm run build
+
+  # build:
+  #   runs-on: ubuntu-latest
+  #   needs: ["test"]
+  #   steps:
+  #     - name: build frontend
+  #       run: npm run build

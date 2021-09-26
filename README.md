@@ -12,9 +12,23 @@ Jobs run in parallel by default. To define sequence/dependencies use `needs`.
 
 ## Actions
 
-The actions can be written in Javascript. It can uses from action repo or custom action can be created in the local repository.
+The actions can be written in Javascript., for some other programming language you can use docker action. It can use from action repo or custom action can be created in the local repository.
 
 When reffering to action you need to specify branch of the repo or version. Version is prefferd as it is more stable than a branch.
+
+### Custom private actions
+
+You can create private action in your project. This action is only available for this project. The custom private actions are stored in ./github/actions folder.
+
+```bash
+# install actions packages
+npm i -D @actions/core @actions/github
+npm i -D @vercel/ncc
+```
+
+NOTE! The action will require these modules to run. You can install everything first or you can use @vercel/ncc module to compile the action and have single file that can run in github action.
+
+For more information about core actions [see this repo](https://github.com/actions/toolkit)
 
 ## Vue 3 + Typescript + Vite
 
@@ -24,6 +38,19 @@ This template should help get you started developing with Vue 3 and Typescript i
 
 - [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
 
-## Type Support For `.vue` Imports in TS
+### Type Support For `.vue` Imports in TS
 
 Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+
+### Testing
+
+Use vue testing library. NOT AVALIABLE FOR Vue v3
+
+```bash
+
+npm i -D jest @types/jest ts-jest vue-jest@next @vue/test-utils@next
+
+npm i -D jest @types/jest ts-jest @vue/test-utils@next @vue/vue3-jest
+
+
+```

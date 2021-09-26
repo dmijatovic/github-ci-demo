@@ -1,0 +1,32 @@
+name: Function expressions
+
+on:
+  push:
+    branches:
+      - never-run
+
+jobs:
+  functions:
+    runs-on: ubuntu-latest
+    env:
+      USER: ${{github.actor}}
+    steps:
+      - name: Print fn test
+        run: |
+          echo ${{ contains('hello','ll') }}
+          echo ${{ startsWith('hello','hel')}}
+          echo ${{ endsWith('hello','lo')}}
+          echo ${{ format('Hello {0} {1}', 'String only user','!!!') }}
+          echo ${{ format('Hello {0} {1}', '$USER','!!!') }}
+      - name: Condition
+        if: github.actor == 'dmijatovic'
+        run: echo "dmijatovic as a user so we run this step too!"
+      - name: Run on failure
+        if: failure()
+        run: echo "This runs only if previous step failed"
+      - name: Run on success
+        if: success()
+        run: echo "This step runs only if previous steps success"
+      - name: Run always
+        if: always()
+        run: echo "This step runs always"

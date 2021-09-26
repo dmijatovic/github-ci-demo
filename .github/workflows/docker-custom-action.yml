@@ -1,0 +1,23 @@
+name: Custom private action
+
+on:
+  push:
+    branches:
+      - never-run
+
+jobs:
+  custom-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Show files
+        run: |
+          cd .github/actions/hello-docker
+          ls -lha
+      - uses: ./.github/actions/hello-docker
+        id: hello
+        with:
+          who-to-greet: "Custom Action For This Project"
+      - name: Log action time
+        run: |
+          echo "Time: ${{steps.hello.outputs.time}}"

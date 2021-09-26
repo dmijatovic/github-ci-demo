@@ -3,6 +3,9 @@
 name: Shell commands on schedule
 
 on:
+  push:
+    branches:
+      - never-run
   # schedule:
   #   # run schedule every 5 minute
   #   # check with crontab guru https://crontab.guru/#*/5_*_*_*_*
