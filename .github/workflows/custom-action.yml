@@ -12,8 +12,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Show files
         run: |
-        cd .github/actions/hello
-        ls -lha
+          cd .github/actions/hello
+          ls -lha
       - uses: ./.github/actions/hello
         id: hello
         with:
