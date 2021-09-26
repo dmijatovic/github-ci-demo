@@ -20,7 +20,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: This is my issue title
           body: This is the body of automatically created issue from custom private action
-          assign-to: "dmijatovic,dmijatovic,p0y1"
+          assign-to: "dmijatovic"
       - name: Log issue object
         run: |
           echo "Created issue: ${{steps.hello.outputs.issue}}"
