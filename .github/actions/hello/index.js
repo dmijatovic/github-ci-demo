@@ -14,10 +14,8 @@ try {
   // first param is output variable name
   core.setOutput("time", time);
   // log info
-  console.lo("github:", JSON.stringify(github, null, 2));
+  console.log("github:", JSON.stringify(github, null, 2));
 } catch (e) {
-  // simulate error
-  // throw new Error("Custom action hello failed:", e.message);
-  // we need to notify github action
+  // notify github action about the error
   core.setFailed(`Hello action failed: ${e.message}`);
 }
