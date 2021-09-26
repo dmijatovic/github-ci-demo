@@ -1,6 +1,5 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
-const { GitHub } = require("@actions/github/lib/utils");
 
 try {
   const token = core.getInput("token");
@@ -8,7 +7,7 @@ try {
   const body = core.getInput("body");
   const assignTo = core.getInput("assign-to");
 
-  const octokit = new GitHub(token);
+  const octokit = new github.GitHub(token);
 
   core.notice("creating issue");
   // async - promise based request
