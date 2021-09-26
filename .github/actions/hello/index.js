@@ -17,7 +17,7 @@ try {
   console.lo("github:", JSON.stringify(github, null, 2));
 } catch (e) {
   // simulate error
-  throw new Error("Custom action hello failed:", e.message);
+  // throw new Error("Custom action hello failed:", e.message);
   // we need to notify github action
   core.setFailed("Hello action failed:", e.message);
 }
