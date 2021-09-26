@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: action/checkout@v2
+        uses: actions/checkout@v2
       - name: install dependecies
         run: npm install --silent
       - name: run unit tests
