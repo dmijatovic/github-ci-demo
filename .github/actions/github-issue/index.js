@@ -11,6 +11,8 @@ try {
 
   const octokit = new github.getOctokit(token);
 
+  console.log("octokit...", JSON.stringify(octokit));
+
   core.notice("creating issue");
   // async - promise based request
   octokit.issues
