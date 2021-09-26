@@ -27,3 +27,8 @@ jobs:
         run: npm ci
       - name: run unit tests
         run: npm run test:coverage
+      - name: upload test coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: code coverage
+          path: coverage
