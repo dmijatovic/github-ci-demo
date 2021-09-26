@@ -28,6 +28,8 @@ npm i -D @vercel/ncc
 
 NOTE! The action will require these modules to run. You can install everything first or you can use @vercel/ncc module to compile the action and have single file that can run in github action.
 
+For more information about core actions [see this repo](https://github.com/actions/toolkit)
+
 ## Vue 3 + Typescript + Vite
 
 This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
