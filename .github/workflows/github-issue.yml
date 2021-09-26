@@ -1,0 +1,26 @@
+name: Custom private action
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  custom-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Show files
+        run: |
+          cd .github/actions/github-issue
+          ls -lha
+      - uses: ./.github/actions/github-issue
+        id: issue
+        with:
+          token: ${{secrets.token}}
+          title: This is my issue title
+          body: This is the body of automatically created issue from custom private action
+          assign-to: "dmijatovic,dmijatovic,p0y1"
+      - name: Log issue object
+        run: |
+          echo "Created issue: ${{steps.hello.outputs.issue}}"
