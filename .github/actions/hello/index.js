@@ -5,6 +5,7 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 
 try {
+  throw new Error("This is my error message");
   // get input (action parameters)
   const name = core.getInput("who-to-greet");
   // log
