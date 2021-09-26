@@ -1,6 +1,10 @@
 name: Shell commands on pull request
 
-on: pull_request
+on:
+  pull_request:
+    branches:
+      - never-run
+
 
 jobs:
   run-shell-command:
