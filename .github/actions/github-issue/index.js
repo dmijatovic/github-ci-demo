@@ -11,11 +11,11 @@ try {
 
   const octokit = new github.getOctokit(token);
 
-  console.log("octokit...", JSON.stringify(octokit));
+  console.log("octokit.rest.issues..", JSON.stringify(octokit.rest.issues));
 
   core.notice("creating issue");
   // async - promise based request
-  octokit.issues
+  octokit.rest.issues
     .create({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
