@@ -1,6 +1,10 @@
 name: Manual custom action
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - never-run
 
 jobs:
   custom-action:
