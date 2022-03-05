@@ -1,10 +1,10 @@
-name: Manual custom action
+name: Manual custom action and push on dev branc
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - never-run
+      - dev
 
 jobs:
   custom-action:
