@@ -1,3 +1,19 @@
+# [1.4.0](https://github.com/dmijatovic/github-ci-demo/compare/v1.3.0...v1.4.0) (2022-03-06)
+
+
+### Bug Fixes
+
+* another fix to test ([b0e1295](https://github.com/dmijatovic/github-ci-demo/commit/b0e1295e07e9843fa22ea6f4161a2c86effd7d56))
+* testing a fix commit ([2e1bf98](https://github.com/dmijatovic/github-ci-demo/commit/2e1bf98cd33d5871fc80dcf3e54255c34548b9b3))
+
+
+### Features
+
+* add another feature. BREAKING CHANGES: I try to make breaking change trugger again ([581701c](https://github.com/dmijatovic/github-ci-demo/commit/581701c102884bf555ea6bbb52d1e540c8e5a325))
+* added new gh release action to test ([46aa3bc](https://github.com/dmijatovic/github-ci-demo/commit/46aa3bcf8091b07770fe07cc9f0222c833d67b13))
+
+
+
 # [1.3.0](https://github.com/dmijatovic/github-ci-demo/compare/v1.2.0...v1.3.0) (2022-03-06)
 
 
@@ -34,11 +50,6 @@
 
 
 ## [0.0.1](https://github.com/dmijatovic/github-ci-demo/compare/v1.0.0...v0.0.1) (2022-03-06)
-
-
-### Features
-
-* added semantic-release options ([70806cd](https://github.com/dmijatovic/github-ci-demo/commit/70806cd91bd537d56db11075709c12aa449725b3))
 
 
 
