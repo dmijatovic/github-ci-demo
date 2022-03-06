@@ -73,4 +73,8 @@ I expectiemented with github actions to automatically create release.
 ### Other action to try
 
 - [GH release](https://github.com/marketplace/actions/gh-release): thisone sounds OK, but not sure how well it fits my needs
-- [Release change log builder](https://github.com/marketplace/actions/release-changelog-builder)
+- [Release changelog builder](https://github.com/marketplace/actions/release-changelog-builder)
+
+- [Tag changelog](https://github.com/marketplace/actions/tag-changelog): thisone seem atractive to me based on config options
+
+Use [action marketplace to find newones](https://github.com/marketplace?category=publishing&query=sort%3Apopularity-desc&type=actions)
