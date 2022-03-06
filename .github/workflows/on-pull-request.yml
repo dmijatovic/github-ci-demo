@@ -1,12 +1,12 @@
-name: On pull request to master
+name: On pull request to dev
 
 on:
   pull_request:
     branches:
-      - master
-  push:
-    branches:
-      - master
+      - dev
+  # push:
+  #   branches:
+  #     - dev
 
 jobs:
   unit-tests-vue:
