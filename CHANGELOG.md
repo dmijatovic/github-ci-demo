@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/dmijatovic/github-ci-demo/compare/v1.4.1...v1.5.0) (2022-03-06)
+
+
+### Features
+
+* push image to ghcr ([6e2ed1d](https://github.com/dmijatovic/github-ci-demo/commit/6e2ed1dafde150ebeb1aaa62cb4d5304839d7586))
+
+
+
 ## [1.4.1](https://github.com/dmijatovic/github-ci-demo/compare/v1.4.0...v1.4.1) (2022-03-06)
 
 
@@ -46,15 +55,6 @@
 * another BREAKING CHANGE, this thirdone ([9eeefe3](https://github.com/dmijatovic/github-ci-demo/commit/9eeefe3ab4e62edb36056b222f2285b66496ca3c))
 * BREAKING CHANGE, test major bump ([69be201](https://github.com/dmijatovic/github-ci-demo/commit/69be201176a145f6d24ef5d41976802548a09235))
 * BREAKING this is another major version test ([f21c4e2](https://github.com/dmijatovic/github-ci-demo/commit/f21c4e2697eabf681bf6f9c26cd0cb7b4efc69d0))
-
-
-
-# [1.1.0](https://github.com/dmijatovic/github-ci-demo/compare/v0.0.1...v1.1.0) (2022-03-06)
-
-
-### Features
-
-* add conventional commits action ([a8ec832](https://github.com/dmijatovic/github-ci-demo/commit/a8ec83226d10ac73aff6ecda665d061b02b0ce44))
 
 
 
