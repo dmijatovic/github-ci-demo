@@ -1,0 +1,36 @@
+name: Release using conventions commits (release branch)
+
+on:
+  push:
+   branches:
+     - release
+
+jobs:
+  changelog:
+   runs-on: ubuntu-latest
+
+   steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: conventional changelog action
+      id: changelog
+      # https://github.com/TriPSs/conventional-changelog-action
+      uses: TriPSs/conventional-changelog-action@latest
+      with:
+        # you can also create separate token
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+    - name: create release
+      # https://github.com/actions/create-release
+      uses: actions/create-release@latest
+      if: ${{steps.changelog.outputs.skipped == 'false'}}
+      env:
+        # This token is provided by Actions, you do not need to create your own token
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: ${{steps.changelog.outputs.clean_changelog}}
+          draft: false
+          prerelease: false
