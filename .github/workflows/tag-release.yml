@@ -1,4 +1,4 @@
-name: Release all on tag push to master
+name: Release all on tag push to any branch
 
 on:
   push:
