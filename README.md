@@ -70,3 +70,5 @@ I expectiemented with github actions to automatically create release.
 
 - marvinpinto/action-automatic-releases@latest: createds github relase. It is used it on tag push.
 
+### Other action to try
+
