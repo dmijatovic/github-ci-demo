@@ -72,4 +72,5 @@ I expectiemented with github actions to automatically create release.
 
 ### Other action to try
 
-- GH release: thisone sounds OK, but not sure how well it fits my needs
+- [GH release](https://github.com/marketplace/actions/gh-release): thisone sounds OK, but not sure how well it fits my needs
+- [Release change log builder](https://github.com/marketplace/actions/release-changelog-builder)
