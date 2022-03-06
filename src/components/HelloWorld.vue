@@ -30,6 +30,9 @@ const count = ref(0)
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
+  <p>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis cupiditate veritatis minima repudiandae nobis, accusantium sit inventore blanditiis quam assumenda.
+  </p>
 </template>
 
 <style scoped>
