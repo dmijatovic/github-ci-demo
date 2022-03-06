@@ -61,3 +61,11 @@ This tools enables automatic version control and CHANGELOG file generation based
 ```bash
 npm i -D semantic-release
 ```
+
+### Github action for tagging and CHANGELOG
+
+I expectiemented with github actions to automatically create release. 
+
+- TriPSs/conventional-changelog-action@latest: makes changelog and tags release. Have problems triggering major release using BREAKING CHANGES in commit.
+
+
