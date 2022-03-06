@@ -33,6 +33,7 @@ const count = ref(0)
   <p>
     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis cupiditate veritatis minima repudiandae nobis, accusantium sit inventore blanditiis quam assumenda.
   </p>
+  <p>Remember is needs to be BREAKING CHANGES not BREALING CHANGE, it is plural!!!</p>
 </template>
 
 <style scoped>
