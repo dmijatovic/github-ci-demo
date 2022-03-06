@@ -72,3 +72,4 @@ I expectiemented with github actions to automatically create release.
 
 ### Other action to try
 
+- GH release: thisone sounds OK, but not sure how well it fits my needs
