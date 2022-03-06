@@ -1,3 +1,12 @@
+## [1.4.1](https://github.com/dmijatovic/github-ci-demo/compare/v1.4.0...v1.4.1) (2022-03-06)
+
+
+### Bug Fixes
+
+* just trigger some fix versoin changes ([79b7d06](https://github.com/dmijatovic/github-ci-demo/commit/79b7d067d37d34344a444d1b6f6c13191ec5e5eb))
+
+
+
 # [1.4.0](https://github.com/dmijatovic/github-ci-demo/compare/v1.3.0...v1.4.0) (2022-03-06)
 
 
@@ -46,10 +55,6 @@
 ### Features
 
 * add conventional commits action ([a8ec832](https://github.com/dmijatovic/github-ci-demo/commit/a8ec83226d10ac73aff6ecda665d061b02b0ce44))
-
-
-
-## [0.0.1](https://github.com/dmijatovic/github-ci-demo/compare/v1.0.0...v0.0.1) (2022-03-06)
 
 
 
