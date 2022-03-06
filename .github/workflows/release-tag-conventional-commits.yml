@@ -1,4 +1,4 @@
-name: Release using conventions commits (release branch)
+name: Release using conventional commits (release branch)
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
      - release
 
 jobs:
-  changelog:
+  release:
    runs-on: ubuntu-latest
 
    steps:
@@ -18,7 +18,7 @@ jobs:
       # https://github.com/TriPSs/conventional-changelog-action
       uses: TriPSs/conventional-changelog-action@latest
       with:
-        # you can also create separate token
+        # you can also create separate token to trace action
         github-token: "${{ secrets.GITHUB_TOKEN }}"
 
     - name: create release
@@ -29,7 +29,7 @@ jobs:
         # This token is provided by Actions, you do not need to create your own token
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ steps.changelog.outputs.tag }}
           release_name: Release ${{ github.ref }}
           body: ${{steps.changelog.outputs.clean_changelog}}
           draft: false
