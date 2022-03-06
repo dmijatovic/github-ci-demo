@@ -77,4 +77,6 @@ I expectiemented with github actions to automatically create release.
 
 - [Tag changelog](https://github.com/marketplace/actions/tag-changelog): thisone seem atractive to me based on config options
 
+- [Build and push docker image to GHCR](https://github.com/marketplace/actions/build-and-publish-docker-images-to-github-container-registry)
+
 Use [action marketplace to find newones](https://github.com/marketplace?category=publishing&query=sort%3Apopularity-desc&type=actions)
