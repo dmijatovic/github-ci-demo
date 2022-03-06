@@ -1,3 +1,13 @@
+# [1.3.0](https://github.com/dmijatovic/github-ci-demo/compare/v1.2.0...v1.3.0) (2022-03-06)
+
+
+### Features
+
+* adding automatical changelog generation, option 1 ([fb4496c](https://github.com/dmijatovic/github-ci-demo/commit/fb4496c722bbc9fb7300c4d729c21dfd8c1bb70c))
+* adding next feature to test ([574e0fd](https://github.com/dmijatovic/github-ci-demo/commit/574e0fde85e866ea44c682e5c0070d79e24559af))
+
+
+
 # [1.2.0](https://github.com/dmijatovic/github-ci-demo/compare/v1.1.0...v1.2.0) (2022-03-06)
 
 
