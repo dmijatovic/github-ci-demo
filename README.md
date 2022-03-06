@@ -69,3 +69,4 @@ I expectiemented with github actions to automatically create release.
 - TriPSs/conventional-changelog-action@latest: makes changelog and tags release. Have problems triggering major release using BREAKING CHANGES in commit. Use in release-tag-conventional-commits.yml file
 
 - marvinpinto/action-automatic-releases@latest: createds github relase. It is used it on tag push.
+
