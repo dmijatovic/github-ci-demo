@@ -1,0 +1,42 @@
+name: Release changelog builder
+
+on:
+  push:
+    branches:
+     - release
+    tags:
+      - "v*"
+
+jobs:
+  release:
+   runs-on: ubuntu-latest
+
+   steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: conventional changelog action
+      id: changelog
+      # https://github.com/mikepenz/release-changelog-builder-action
+      uses: mikepenz/release-changelog-builder-action@v2
+      env:
+        # The token is provided by Actions, you do not need to create your own token
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: create release
+      if: ${{steps.changelog.outputs.skipped == 'false'}}
+      # https://github.com/softprops/action-gh-release
+      uses: softprops/action-gh-release@v1
+      env:
+        # The token is provided by Actions, you do not need to create your own token
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{github.ref}}
+        name: ${{github.ref}}
+        body: ${{steps.changelog.outputs.changelog}}
+        draft: false
+        prerelease: true
+        files: |
+          LICENSE
+          ./deployment/docker-compose.yml
+          ./deployment/README.md
