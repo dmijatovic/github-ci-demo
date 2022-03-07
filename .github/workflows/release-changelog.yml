@@ -23,9 +23,9 @@ jobs:
         # use shared package.json in deployment folder
         version-file: "./deployment/package.json"
         # do not create additional commit, just tag current commit with the version
-        skip-commit: "true"
+        skip-commit: true
         # do not create changelog file, the content in used in relase body only
-        output-file: "false"
+        output-file: false
 
     - name: create release
       if: ${{steps.changelog.outputs.skipped == 'false'}}
@@ -38,9 +38,8 @@ jobs:
           tag_name: ${{ steps.changelog.outputs.tag }}
           name: ${{ steps.changelog.outputs.tag }}
           body: ${{steps.changelog.outputs.clean_changelog}}
-          draft: false
-          prerelease: false
           draft: true
+          prerelease: false
           files: |
             LICENSE
             ./deployment/docker-compose.yml
