@@ -22,6 +22,7 @@ jobs:
         github-token: "${{ secrets.GITHUB_TOKEN }}"
         # use shared package.json in deployment folder
         version-file: "./deployment/package.json"
+        # do not create additional commit, just tag current commit with the version
         skip-commit: "true"
         # do not create changelog file, the content in used in relase body only
         output-file: "false"
@@ -39,6 +40,7 @@ jobs:
           body: ${{steps.changelog.outputs.clean_changelog}}
           draft: false
           prerelease: false
+          draft: true
           files: |
             LICENSE
             ./deployment/docker-compose.yml
