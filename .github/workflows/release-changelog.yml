@@ -16,18 +16,20 @@ jobs:
     - name: conventional changelog action
       id: changelog
       # https://github.com/TriPSs/conventional-changelog-action
-      uses: TriPSs/conventional-changelog-action@latest
+      uses: TriPSs/conventional-changelog-action@v3
       with:
         # you can also create separate token to trace action
         github-token: "${{ secrets.GITHUB_TOKEN }}"
+        # use shared package.json in deployment folder
+        version-file: "./deployment/package.json"
         skip-commit: "true"
         # do not create changelog file, the content in used in relase body only
         output-file: "false"
 
     - name: create release
-      # https://github.com/actions/create-release
-      uses: softprops/action-gh-release@v1
       if: ${{steps.changelog.outputs.skipped == 'false'}}
+      # https://github.com/softprops/action-gh-release
+      uses: softprops/action-gh-release@v1
       env:
         # This token is provided by Actions, you do not need to create your own token
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -37,3 +39,7 @@ jobs:
           body: ${{steps.changelog.outputs.clean_changelog}}
           draft: false
           prerelease: false
+          files: |
+            LICENSE
+            "./deployment/docker-compose.yml"
+            "./deployment/README.md"
