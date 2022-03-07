@@ -2,8 +2,6 @@ name: Release changelog builder
 
 on:
   push:
-    branches:
-     - release
     tags:
       - "v*"
 

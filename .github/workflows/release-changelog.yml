@@ -3,7 +3,7 @@ name: Release using conventional commits (release branch)
 on:
   push:
    branches:
-     - release-off
+     - release
 
 jobs:
   release:
@@ -26,6 +26,8 @@ jobs:
         skip-commit: true
         # do not create changelog file, the content is used at next step for relase body
         output-file: false
+        # changelog hook
+        pre-changelog-generation: "./changelog_hook.ts"
 
     - name: create release
       if: ${{steps.changelog.outputs.skipped == 'false'}}
