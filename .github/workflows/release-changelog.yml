@@ -1,9 +1,9 @@
-name: OLD release using conventional commits (release branch)
+name: Release using conventional commits (release branch)
 
 on:
   push:
    branches:
-     - no-trigger
+     - release
 
 jobs:
   release:
@@ -23,14 +23,14 @@ jobs:
 
     - name: create release
       # https://github.com/actions/create-release
-      uses: actions/create-release@latest
+      uses: softprops/action-gh-release@v1
       if: ${{steps.changelog.outputs.skipped == 'false'}}
       env:
         # This token is provided by Actions, you do not need to create your own token
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           tag_name: ${{ steps.changelog.outputs.tag }}
-          release_name: Release ${{ steps.changelog.outputs.tag }}
+          name: ${{ steps.changelog.outputs.tag }}
           body: ${{steps.changelog.outputs.clean_changelog}}
           draft: false
           prerelease: false
