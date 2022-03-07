@@ -20,6 +20,9 @@ jobs:
       with:
         # you can also create separate token to trace action
         github-token: "${{ secrets.GITHUB_TOKEN }}"
+        skip-commit: "true"
+        # do not create changelog file, the content in used in relase body only
+        output-file: "false"
 
     - name: create release
       # https://github.com/actions/create-release
