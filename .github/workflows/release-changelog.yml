@@ -41,5 +41,5 @@ jobs:
           prerelease: false
           files: |
             LICENSE
-            "./deployment/docker-compose.yml"
-            "./deployment/README.md"
+            ./deployment/docker-compose.yml
+            ./deployment/README.md
