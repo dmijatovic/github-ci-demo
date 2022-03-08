@@ -3,7 +3,7 @@ name: Release using conventional commits (release branch)
 on:
   push:
    branches:
-     - release
+     - prerelease
 
 jobs:
   release:
@@ -27,7 +27,7 @@ jobs:
         # do not create changelog file, the content is used at next step for relase body
         output-file: false
         # changelog hook
-        # pre-changelog-generation: ".github/actions/changelog_hook.js"
+        pre-changelog-generation: ".github/actions/changelog_hook.js"
 
     - name: create release
       if: ${{steps.changelog.outputs.skipped == 'false'}}
@@ -40,8 +40,8 @@ jobs:
         tag_name: ${{ steps.changelog.outputs.tag }}
         name: ${{ steps.changelog.outputs.tag }}
         body: ${{steps.changelog.outputs.clean_changelog}}
-        draft: true
-        prerelease: false
+        draft: false
+        prerelease: true
         files: |
           LICENSE
           ./deployment/docker-compose.yml
