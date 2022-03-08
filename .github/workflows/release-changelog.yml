@@ -40,11 +40,11 @@ jobs:
         sed -i -e 's/:latest/:${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
         cat ./deployment/docker-compose.yml
 
-    - name: update CITATION.cff file
+    - name: update CITATION.cff with version and release date
       run: |
         echo replace version
         sed -i -e 's/version: v*/version: ${{steps.changelog.outputs.tag}}/g' CITATION.cff
-        sed -i -e 's/date-released:*/ date-released: 'date +%F'/g' CITATION.cff
+        sed -i -e 's/date-released:*/ date-released: date +%F/g' CITATION.cff
         cat CITATION.cff
 
     - name: zip deployment files
