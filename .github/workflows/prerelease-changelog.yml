@@ -11,7 +11,12 @@ jobs:
 
    steps:
     - name: checkout
-      uses: actions/checkout@v2
+      # https://github.com/actions/checkout
+      uses: actions/checkout@v3
+      with:
+        # checkout only pre-release branch
+        ref: prerelase
+        # fetch-depth: 3
 
     - name: conventional changelog action
       id: changelog
@@ -29,8 +34,10 @@ jobs:
         # do not create additional commit, just tag current commit with the version
         skip-commit: true
         # do not push tag to repo when prerelase
-        # this does not work - it pushed tag master
+        # this does not work - it pushed tag to master branch
         # git-push: false
+        # do not pull - we laready checked out the selection we want to use for versioning
+        skip-git-pull: true
 
     - name: use this version in the docker-compose.yml
       if: ${{steps.changelog.outputs.skipped == 'false'}}
