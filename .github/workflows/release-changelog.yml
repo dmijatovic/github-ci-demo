@@ -39,6 +39,15 @@ jobs:
         sed -i -e 's/:latest/:${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
         cat ./deployment/docker-compose.yml
 
+    - name: zip deployment files
+      if: ${{steps.changelog.outputs.skipped == 'false'}}
+      run: |
+        zip deployment.zip \
+          ./deployment/docker-compose.yml \
+          ./deployment/.env.example \
+          ./deployment/README.md \
+          LICENSE
+
     - name: create release
       if: ${{steps.changelog.outputs.skipped == 'false'}}
       # https://github.com/softprops/action-gh-release
@@ -54,6 +63,4 @@ jobs:
         prerelease: false
         files: |
           LICENSE
-          ./deployment/docker-compose.yml
-          ./deployment/.env.example
-          ./deployment/README.md
+          deployment.zip
