@@ -19,9 +19,7 @@ jobs:
       uses: TriPSs/conventional-changelog-action@v3
       with:
         # you can also create separate token to trace action
-        github-token: "${{ secrets.GITHUB_TOKEN }}"
-        # use shared package.json in deployment folder
-        version-file: "./deployment/package.json"
+        github-token: "${{secrets.GITHUB_TOKEN}}"
         # do not create additional commit, just tag current commit with the version
         skip-commit: true
         # do not create changelog file, the content is used at next step for relase body
@@ -35,10 +33,10 @@ jobs:
       uses: softprops/action-gh-release@v1
       env:
         # The token is provided by Actions, you do not need to create your own token
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       with:
-        tag_name: ${{ steps.changelog.outputs.tag }}
-        name: ${{ steps.changelog.outputs.tag }}
+        tag_name: ${{steps.changelog.outputs.tag}}
+        name: ${{steps.changelog.outputs.tag}}
         body: ${{steps.changelog.outputs.clean_changelog}}
         draft: true
         prerelease: false
@@ -46,3 +44,4 @@ jobs:
           LICENSE
           ./deployment/docker-compose.yml
           ./deployment/README.md
+          ./deployment/.env.example

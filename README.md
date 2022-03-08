@@ -74,9 +74,18 @@ I expectiemented with github actions to automatically create release.
 
 - [GH release](https://github.com/marketplace/actions/gh-release): thisone sounds OK, but not sure how well it fits my needs
 - [Release changelog builder](https://github.com/marketplace/actions/release-changelog-builder)
-
 - [Tag changelog](https://github.com/marketplace/actions/tag-changelog): thisone seem atractive to me based on config options
-
 - [Build and push docker image to GHCR](https://github.com/marketplace/actions/build-and-publish-docker-images-to-github-container-registry)
 
 Use [action marketplace to find newones](https://github.com/marketplace?category=publishing&query=sort%3Apopularity-desc&type=actions)
+
+### [TriPSs/conventional-changelog-action](https://github.com/TriPSs/conventional-changelog-action)
+
+This action has number of flexible features:
+
+- skip-commit: to avoid new commit with changelog.md file
+- output-file: do not output changelog.md file
+
+### [Create release action](softprops/action-gh-release@v1)
+
+
