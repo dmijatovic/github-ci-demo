@@ -9,7 +9,7 @@ exports.preVersionGeneration = (version) => {
 exports.preTagGeneration = (tag) => {
   // console.log("preTagGeneration...tag...", tag)
   // add alpha to tag if not exists
-  if (tag.includes("-aplha") === true){
+  if (tag.includes("-alpha") === true){
     return `${tag}`
   }
   return `${tag}-alpha`

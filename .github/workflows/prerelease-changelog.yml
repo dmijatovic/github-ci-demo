@@ -29,7 +29,8 @@ jobs:
         # do not create additional commit, just tag current commit with the version
         skip-commit: true
         # do not push tag to repo when prerelase
-        git-push: false
+        # this does not work - it pushed tag master
+        # git-push: false
 
     - name: use this version in the docker-compose.yml
       if: ${{steps.changelog.outputs.skipped == 'false'}}
