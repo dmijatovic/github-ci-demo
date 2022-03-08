@@ -36,6 +36,7 @@ jobs:
     - name: use this version in the docker-compose.yml
       if: ${{steps.changelog.outputs.skipped == 'false'}}
       run: |
+        echo replace :latest tag with ${{steps.changelog.outputs.tag}}
         sed -i -e 's/:latest/:${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
         cat ./deployment/docker-compose.yml
 
@@ -61,6 +62,4 @@ jobs:
         body: ${{steps.changelog.outputs.clean_changelog}}
         draft: true
         prerelease: false
-        files: |
-          LICENSE
-          deployment.zip
+        files: deployment.zip
