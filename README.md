@@ -86,6 +86,8 @@ This action has number of flexible features:
 - skip-commit: to avoid new commit with changelog.md file
 - output-file: do not output changelog.md file
 
+Triggering breaking change does not work that easily
+
 ### [Create release action](softprops/action-gh-release@v1)
 
 
