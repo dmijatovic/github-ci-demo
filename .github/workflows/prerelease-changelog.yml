@@ -22,14 +22,17 @@ jobs:
         github-token: "${{ secrets.GITHUB_TOKEN }}"
         # use shared package.json in deployment folder
         version-file: "./deployment/package.json"
-        # do not create additional commit, just tag current commit with the version
-        skip-commit: true
         # do not create changelog file, the content is used at next step for relase body
         output-file: false
         # changelog hook
         pre-changelog-generation: ".github/actions/changelog_hook.js"
+        # do not create additional commit, just tag current commit with the version
+        skip-commit: true
+        # do not push tag to repo when prerelase
+        git-push: false
 
-    - name: create docker-compose using specific version
+    - name: use this version in the docker-compose.yml
+      if: ${{steps.changelog.outputs.skipped == 'false'}}
       run: |
         sed -i -e 's/:latest/${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
         cat ./deployment/docker-compose.yml
@@ -50,4 +53,5 @@ jobs:
         files: |
           LICENSE
           ./deployment/docker-compose.yml
+          ./deployment/.env.example
           ./deployment/README.md
