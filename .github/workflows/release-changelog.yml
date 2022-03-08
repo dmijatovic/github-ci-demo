@@ -33,12 +33,19 @@ jobs:
         # changelog hook
         # pre-changelog-generation: ".github/actions/changelog_hook.js"
 
-    - name: use this version in the docker-compose.yml
+    - name: update version in docker-compose.yml
       if: ${{steps.changelog.outputs.skipped == 'false'}}
       run: |
         echo replace :latest tag with ${{steps.changelog.outputs.tag}}
         sed -i -e 's/:latest/:${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
         cat ./deployment/docker-compose.yml
+
+    - name: update CITATION.cff file
+      run: |
+        echo replace version
+        sed -i -e 's/version: v*/version: ${{steps.changelog.outputs.tag}}/g' CITATION.cff
+        sed -i -e 's/date-released:*/ date-released: 'date +%F'/g' CITATION.cff
+        cat CITATION.cff
 
     - name: zip deployment files
       if: ${{steps.changelog.outputs.skipped == 'false'}}
