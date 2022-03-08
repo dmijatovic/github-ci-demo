@@ -13,9 +13,9 @@ jobs:
     - name: checkout
       # https://github.com/actions/checkout
       uses: actions/checkout@v3
-      with:
+      # with:
         # checkout whole history of release branch
-        fetch-depth: 0
+        # fetch-depth: 0
 
     - name: conventional changelog action
       id: changelog
