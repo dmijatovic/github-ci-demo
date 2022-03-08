@@ -1,4 +1,4 @@
-name: Release using conventional commits (release branch)
+name: Prerelease using conventional commits
 
 on:
   push:
@@ -34,7 +34,7 @@ jobs:
     - name: use this version in the docker-compose.yml
       if: ${{steps.changelog.outputs.skipped == 'false'}}
       run: |
-        sed -i -e 's/:latest/${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
+        sed -i -e 's/:latest/:${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
         cat ./deployment/docker-compose.yml
 
     - name: create release
