@@ -2,7 +2,7 @@
 exports.preVersionGeneration = (version) => {
   // console.log("preVersionGeneration...version...", version)
   // return the version as received
-  return version
+  return `${version}-alpha`
 }
 
 // Next tag e.g. v1.12.3
