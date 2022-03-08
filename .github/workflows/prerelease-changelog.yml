@@ -29,6 +29,11 @@ jobs:
         # changelog hook
         pre-changelog-generation: ".github/actions/changelog_hook.js"
 
+    - name: create docker-compose using specific version
+      run: |
+        sed -i -e 's/:latest/${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
+        cat ./deployment/docker-compose.yml
+
     - name: create release
       if: ${{steps.changelog.outputs.skipped == 'false'}}
       # https://github.com/softprops/action-gh-release
