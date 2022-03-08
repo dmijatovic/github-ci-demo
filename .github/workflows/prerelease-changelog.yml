@@ -26,7 +26,7 @@ jobs:
         # you can also create separate token to trace action
         github-token: "${{ secrets.GITHUB_TOKEN }}"
         # use shared package.json in deployment folder
-        version-file: "./deployment/package.json"
+        # version-file: "./deployment/package.json"
         # do not create changelog file, the content is used at next step for relase body
         output-file: false
         # changelog hook

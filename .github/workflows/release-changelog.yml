@@ -11,7 +11,11 @@ jobs:
 
    steps:
     - name: checkout
-      uses: actions/checkout@v2
+      # https://github.com/actions/checkout
+      uses: actions/checkout@v3
+      with:
+        # checkout whole history of release branch
+        fetch-depth: 0
 
     - name: conventional changelog action
       id: changelog
@@ -20,16 +24,19 @@ jobs:
       with:
         # you can also create separate token to trace action
         github-token: "${{secrets.GITHUB_TOKEN}}"
-        # do not create additional commit, just tag current commit with the version
-        skip-commit: true
         # do not create changelog file, the content is used at next step for relase body
         output-file: false
+        # do not create additional commit, just tag current commit with the version
+        skip-commit: true
+        # do not pull - we already checked out the selection we want to use for versioning
+        skip-git-pull: true
         # changelog hook
         # pre-changelog-generation: ".github/actions/changelog_hook.js"
 
-    - name: create docker-compose using specific version
+    - name: use this version in the docker-compose.yml
+      if: ${{steps.changelog.outputs.skipped == 'false'}}
       run: |
-        sed -i -e 's/:latest/${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
+        sed -i -e 's/:latest/:${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
         cat ./deployment/docker-compose.yml
 
     - name: create release
@@ -38,15 +45,15 @@ jobs:
       uses: softprops/action-gh-release@v1
       env:
         # The token is provided by Actions, you do not need to create your own token
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{steps.changelog.outputs.tag}}
-        name: ${{steps.changelog.outputs.tag}}
+        tag_name: ${{ steps.changelog.outputs.tag }}
+        name: ${{ steps.changelog.outputs.tag }}
         body: ${{steps.changelog.outputs.clean_changelog}}
-        draft: true
-        prerelease: false
+        draft: false
+        prerelease: true
         files: |
           LICENSE
           ./deployment/docker-compose.yml
-          ./deployment/README.md
           ./deployment/.env.example
+          ./deployment/README.md
