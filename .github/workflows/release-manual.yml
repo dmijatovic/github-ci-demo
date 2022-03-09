@@ -1,4 +1,4 @@
-name: Manual release using conventional commits (release branch)
+name: Manual release using conventional commits (main branch)
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         # checkout whole history of main branch
-        ref: main
+        ref: master
         fetch-depth: 0
 
     - name: conventional changelog action
@@ -32,14 +32,15 @@ jobs:
         # changelog hook
         # pre-changelog-generation: ".github/actions/changelog_hook.js"
 
-    - name: update version in docker-compose.yml
+    - name: update docker-compose.yml
       if: ${{steps.changelog.outputs.skipped == 'false'}}
       run: |
         echo replace :latest tag with ${{steps.changelog.outputs.tag}}
         sed -i -e 's/:latest/:${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
         cat ./deployment/docker-compose.yml
 
-    - name: update CITATION.cff with version and release date
+    - name: update CITATION.cff
+      if: ${{steps.changelog.outputs.skipped == 'false'}}
       # use doublequotes in second replace "" to enable variable substitution with bash
       run: |
         echo replace version line
@@ -57,6 +58,17 @@ jobs:
           ./deployment/README.md \
           CITATION.cff \
           LICENSE
+
+    - name: commit changes in CITATION.cff file
+      run: |
+        echo define user
+        git config --global user.email "action@github.com"
+        git config --global user.name "Github Action: release-manual"
+        echo commit citation file
+        git add CITATION.cff
+        git commit -m "ci: update citation file"
+        echo push to origin
+        git push origin
 
     - name: create release
       if: ${{steps.changelog.outputs.skipped == 'false'}}
