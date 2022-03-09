@@ -87,7 +87,7 @@ This action has number of flexible features:
 - output-file: do not output changelog.md file
 - git-push: false does not works as expected. It will create tag but on the master branch endpoint.
 
-Triggering breaking change does not work that easily
+Triggering breaking change requires using BREAKING CHANGE: what is the change... text in the footer of commit message (new line required).
 
 ### [Create release action](softprops/action-gh-release@v1)
 
@@ -96,10 +96,18 @@ Triggering breaking change does not work that easily
 ```bash
 # delete locally
 git tag -d {tag}
-
 # remove from origin
 git push origin --delete {tag}
 # or more specificaly
 git push origin :refs/tags/{tag}
+```
+
+## Creating anotated tag manually
+
+When using conventational-changelog-action or same kind of actions to calculate version tag you might want to interfere with the automatic versioning. That is possible by creating anonated tags manually or removing existing tags from the repo.
+
+```bash
+# create anonated tag
+git tag -a {tag} -m {tag}
 
 ```
