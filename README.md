@@ -85,7 +85,7 @@ This action has number of flexible features:
 
 - skip-commit: to avoid new commit with changelog.md file
 - output-file: do not output changelog.md file
-- git-push: false does not works as expected. It will create tag but on the master branch endpoint.
+- git-push: false does not works as expected. It will create tag but not push it. However if there are steps at the later stage that manipulate content and commit, the tag might be pushed with this changes. I had this during testing.
 
 Triggering breaking change requires using BREAKING CHANGE: what is the change... text in the footer of commit message (new line required).
 
@@ -109,8 +109,8 @@ When using conventational-changelog-action or same kind of actions to calculate 
 ```bash
 # create anotated tag
 git tag -a {tag} -m {tag}
-# push commits and tags at the same time
-git push --folow-tags
 # push tags only
 git push --tags
+# push commits and tags at the same time (not sure this works as exepected)
+git push --follow-tags
 ```
