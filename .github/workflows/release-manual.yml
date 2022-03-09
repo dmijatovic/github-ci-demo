@@ -44,9 +44,9 @@ jobs:
       # use doublequotes in second replace "" to enable variable substitution with bash
       run: |
         echo replace version line
-        sed -i -e 's/version:.*/version: ${{steps.changelog.outputs.tag}}/' CITATION.cff
+        sed -i -e 's/^version:.*/version: ${{steps.changelog.outputs.tag}}/' CITATION.cff
         echo replace date
-        sed -i -e "s/date-released:.*/date-released: '$(date +%F)'/" CITATION.cff
+        sed -i -e "s/^date-released:.*/date-released: '$(date +%F)'/" CITATION.cff
         cat CITATION.cff
 
     - name: zip deployment files
