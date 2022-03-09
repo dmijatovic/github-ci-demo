@@ -24,8 +24,9 @@ jobs:
         git status
         echo tag $GITHUB_REF
         echo sha $GITHUB_SHA
-        echo last tag in the repo
-        git describe --tags
+        echo list tag
+        git tags --list
+        # git describe --tags
         # git describe --abbrev=0
 
     - name: update CITATION.cff with version and release date
