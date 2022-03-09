@@ -40,13 +40,14 @@ jobs:
         sed -i -e "s/^date-released:.*/date-released: '$(date +%F)'/" CITATION.cff
         cat CITATION.cff
 
-    # - name: commit changes
-    #   run: |
-    #     git add .
-    #     git commit -m "release: update citation file"
-    #     git push
+    - name: commit changes in CITATION.cff file
+      run: |
+        git add CITATION.cff
+        git commit -m "release: update citation file"
+        git push origin release
 
-    - name: commit changes
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: "release: update citation file"
+    # - name: commit changes
+    #   uses: stefanzweifel/git-auto-commit-action@v4
+    #   with:
+    #     commit_message: "release: update citation file"
+    #     file_pattern: CITATION.cff
