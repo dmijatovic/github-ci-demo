@@ -107,7 +107,10 @@ git push origin :refs/tags/{tag}
 When using conventational-changelog-action or same kind of actions to calculate version tag you might want to interfere with the automatic versioning. That is possible by creating anonated tags manually or removing existing tags from the repo.
 
 ```bash
-# create anonated tag
+# create anotated tag
 git tag -a {tag} -m {tag}
-
+# push commits and tags at the same time
+git push --folow-tags
+# push tags only
+git push --tags
 ```

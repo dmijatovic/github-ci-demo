@@ -79,8 +79,6 @@ jobs:
       with:
         commit_message: "release: update citation file"
         file_pattern: CITATION.cff
-        # tag already took place by change log
-        # tagging_message: ${{steps.changelog.outputs.tag}}
 
     - name: create release
       if: ${{steps.changelog.outputs.skipped == 'false'}}
