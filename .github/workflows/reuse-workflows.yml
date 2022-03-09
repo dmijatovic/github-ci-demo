@@ -1,0 +1,13 @@
+name: Manual reuse workflows
+
+on:
+  workflow_dispatch:
+
+jobs:
+  reuse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: shell-env
+        uses: ./.github/workflows/shell-env.yml@master
+      - name: shell-on-push
+        uses: ./.github/workflows/shell-on-push.yml@master

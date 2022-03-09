@@ -72,7 +72,7 @@ jobs:
     #     echo push to origin
     #     git push origin
 
-    - name: commit CITATION.cff and tag release
+    - name: commit CITATION.cff
       if: ${{steps.changelog.outputs.skipped == 'false'}}
       # https://github.com/stefanzweifel/git-auto-commit-action
       uses: stefanzweifel/git-auto-commit-action@v4
