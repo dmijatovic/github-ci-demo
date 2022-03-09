@@ -40,14 +40,14 @@ jobs:
         sed -i -e 's/:latest/:${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
         cat ./deployment/docker-compose.yml
 
-    - name: update CITATION.cff with version and release date
-      # use doublequotes in second replace "" to enable variable substitution with bash
-      run: |
-        echo replace version line
-        sed -i -e 's/version:.*/version: ${{steps.changelog.outputs.tag}}/' CITATION.cff
-        echo replace date
-        sed -i -e "s/date-released:.*/date-released: '$(date +%F)'/" CITATION.cff
-        cat CITATION.cff
+    # - name: update CITATION.cff with version and release date
+    #   # use doublequotes in second replace "" to enable variable substitution with bash
+    #   run: |
+    #     echo replace version line
+    #     sed -i -e 's/version:.*/version: ${{steps.changelog.outputs.tag}}/' CITATION.cff
+    #     echo replace date
+    #     sed -i -e "s/date-released:.*/date-released: '$(date +%F)'/" CITATION.cff
+    #     cat CITATION.cff
 
     - name: zip deployment files
       if: ${{steps.changelog.outputs.skipped == 'false'}}

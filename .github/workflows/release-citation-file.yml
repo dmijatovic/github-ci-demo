@@ -1,0 +1,36 @@
+name: Release citation.cff file
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+   runs-on: ubuntu-latest
+
+   steps:
+    - name: checkout
+      # https://github.com/actions/checkout
+      uses: actions/checkout@v3
+      with:
+        # checkout whole history of release branch
+        fetch-depth: 0
+
+    - name: get version tag
+      run: |
+        echo tag $GITHUB_REF
+        echo sha $GITHUB_SHA
+
+    - name: update CITATION.cff with version and release date
+      # use doublequotes in second replace "" to enable variable substitution with bash
+      run: |
+        echo replace version line
+        sed -i -e "s/version:.*/version: $GITHUB_REF/" CITATION.cff
+        echo replace date
+        sed -i -e "s/date-released:.*/date-released: '$(date +%F)'/" CITATION.cff
+        cat CITATION.cff
+
+    - name: commit changes
+      run: |
+        git add .
+        git commit -m "release: update citation file"
