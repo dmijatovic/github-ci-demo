@@ -13,8 +13,10 @@ jobs:
       # https://github.com/actions/checkout
       uses: actions/checkout@v3
       with:
-        # checkout
+        # checkout release branch
         ref: release
+        # whole history
+        fetch-depth: 0
 
     - name: get version tag
       run: |
@@ -33,9 +35,9 @@ jobs:
       # use doublequotes in second replace "" to enable variable substitution with bash
       run: |
         echo replace version line
-        sed -i -e "s/version:.*/version: $(git describe --abbrev=0)/" CITATION.cff
+        sed -i -e "s/^version:.*/version: $(git describe --abbrev=0)/" CITATION.cff
         echo replace date
-        sed -i -e "s/date-released:.*/date-released: '$(date +%F)'/" CITATION.cff
+        sed -i -e "s/^date-released:.*/date-released: '$(date +%F)'/" CITATION.cff
         cat CITATION.cff
 
     # - name: commit changes
