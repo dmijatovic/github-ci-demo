@@ -42,8 +42,13 @@ jobs:
 
     - name: commit changes in CITATION.cff file
       run: |
+        echo define user
+        git config --global user.email "github-action@release.com"
+        git config --global user.name "Release github action"
+        echo commit citation file
         git add CITATION.cff
         git commit -m "release: update citation file"
+        echo push to origin
         git push origin release
 
     # - name: commit changes
