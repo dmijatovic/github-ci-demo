@@ -22,6 +22,8 @@ jobs:
         echo sha $GITHUB_SHA
         echo last tag in the repo
         git describe --abbrev=0
+        echo repo status
+        git status
 
     - name: update CITATION.cff with version and release date
       # use doublequotes in second replace "" to enable variable substitution with bash
@@ -32,8 +34,13 @@ jobs:
         sed -i -e "s/date-released:.*/date-released: '$(date +%F)'/" CITATION.cff
         cat CITATION.cff
 
+    # - name: commit changes
+    #   run: |
+    #     git add .
+    #     git commit -m "release: update citation file"
+    #     git push
+
     - name: commit changes
-      run: |
-        git add .
-        git commit -m "release: update citation file"
-        git push
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "release: update citation file"
