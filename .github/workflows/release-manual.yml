@@ -1,0 +1,73 @@
+name: Manual release using conventional commits (release branch)
+
+on:
+  workflow_call:
+
+jobs:
+  release:
+   runs-on: ubuntu-latest
+
+   steps:
+    - name: checkout
+      # https://github.com/actions/checkout
+      uses: actions/checkout@v3
+      with:
+        # checkout whole history of main
+        fetch-depth: 0
+
+    - name: conventional changelog action
+      id: changelog
+      # https://github.com/TriPSs/conventional-changelog-action
+      uses: TriPSs/conventional-changelog-action@v3
+      with:
+        # you can also create separate token to trace action
+        github-token: "${{secrets.GITHUB_TOKEN}}"
+        # do not create changelog file, the content is used at next step for relase body
+        output-file: false
+        # do not create additional commit, just tag current commit with the version
+        skip-commit: true
+        # do not pull - we already checked out the selection we want to use for versioning
+        skip-git-pull: true
+        # changelog hook
+        # pre-changelog-generation: ".github/actions/changelog_hook.js"
+
+    - name: update version in docker-compose.yml
+      if: ${{steps.changelog.outputs.skipped == 'false'}}
+      run: |
+        echo replace :latest tag with ${{steps.changelog.outputs.tag}}
+        sed -i -e 's/:latest/:${{steps.changelog.outputs.tag}}/g' ./deployment/docker-compose.yml
+        cat ./deployment/docker-compose.yml
+
+    - name: update CITATION.cff with version and release date
+      # use doublequotes in second replace "" to enable variable substitution with bash
+      run: |
+        echo replace version line
+        sed -i -e 's/version:.*/version: ${{steps.changelog.outputs.tag}}/' CITATION.cff
+        echo replace date
+        sed -i -e "s/date-released:.*/date-released: '$(date +%F)'/" CITATION.cff
+        cat CITATION.cff
+
+    - name: zip deployment files
+      if: ${{steps.changelog.outputs.skipped == 'false'}}
+      run: |
+        zip deployment.zip \
+          ./deployment/docker-compose.yml \
+          ./deployment/.env.example \
+          ./deployment/README.md \
+          CITATION.cff \
+          LICENSE
+
+    - name: create release
+      if: ${{steps.changelog.outputs.skipped == 'false'}}
+      # https://github.com/softprops/action-gh-release
+      uses: softprops/action-gh-release@v1
+      env:
+        # The token is provided by Actions, you do not need to create your own token
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.changelog.outputs.tag }}
+        name: ${{ steps.changelog.outputs.tag }}
+        body: ${{steps.changelog.outputs.clean_changelog}}
+        draft: true
+        prerelease: false
+        files: deployment.zip
