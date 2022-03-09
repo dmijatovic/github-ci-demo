@@ -25,7 +25,7 @@ jobs:
         echo tag $GITHUB_REF
         echo sha $GITHUB_SHA
         echo list tag
-        git tags --list
+        git tag --list
         # git describe --tags
         # git describe --abbrev=0
 
