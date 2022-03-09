@@ -31,6 +31,8 @@ jobs:
         skip-git-pull: true
         # changelog hook
         # pre-changelog-generation: ".github/actions/changelog_hook.js"
+        # skip tag push
+        git-push: false
 
     - name: update docker-compose.yml
       if: ${{steps.changelog.outputs.skipped == 'false'}}
@@ -59,16 +61,25 @@ jobs:
           CITATION.cff \
           LICENSE
 
-    - name: commit changes in CITATION.cff file
-      run: |
-        echo define user
-        git config --global user.email "action@github.com"
-        git config --global user.name "Github Action: release-manual"
-        echo commit citation file
-        git add CITATION.cff
-        git commit -m "ci: update citation file"
-        echo push to origin
-        git push origin
+    # - name: commit changes in CITATION.cff file
+    #   run: |
+    #     echo define user
+    #     git config --global user.email "action@github.com"
+    #     git config --global user.name "Github Action: release-manual"
+    #     echo commit citation file
+    #     git add CITATION.cff
+    #     git commit -m "ci: update citation file"
+    #     echo push to origin
+    #     git push origin
+
+    - name: commit CITATION.cff and tag release
+      if: ${{steps.changelog.outputs.skipped == 'false'}}
+      # https://github.com/stefanzweifel/git-auto-commit-action
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "release: update citation file"
+        file_pattern: CITATION.cff
+        tagging_message: ${{steps.changelog.outputs.tag}}
 
     - name: create release
       if: ${{steps.changelog.outputs.skipped == 'false'}}
