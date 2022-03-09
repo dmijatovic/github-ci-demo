@@ -20,12 +20,15 @@ jobs:
       run: |
         echo tag $GITHUB_REF
         echo sha $GITHUB_SHA
+        echo last tag
+        LAST_TAG=git describe --abbrev=0
+        echo $LAST_TAG
 
     - name: update CITATION.cff with version and release date
       # use doublequotes in second replace "" to enable variable substitution with bash
       run: |
         echo replace version line
-        sed -i -e "s/version:.*/version: $GITHUB_REF/" CITATION.cff
+        sed -i -e "s/version:.*/version: $LAST_TAG/" CITATION.cff
         echo replace date
         sed -i -e "s/date-released:.*/date-released: '$(date +%F)'/" CITATION.cff
         cat CITATION.cff

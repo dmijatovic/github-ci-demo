@@ -56,7 +56,6 @@ jobs:
           ./deployment/docker-compose.yml \
           ./deployment/.env.example \
           ./deployment/README.md \
-          CITATION.cff \
           LICENSE
 
     - name: create release
