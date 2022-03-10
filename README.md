@@ -1,9 +1,10 @@
-![](https://github.com/dmijatovic/github-ci-demo/workflows/DEV_TEST/badge.svg?branch=dev&event=push)
-[![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8F%20%20%E2%97%8B-orange)](https://fair-software.eu)
-![](https://github.com/dmijatovic/github-ci-demo/actions/workflows/docker.yml/badge.svg)
-![check-code-coverage](https://img.shields.io/badge/code--coverage-80%-brightgreen)
 
-# Github actions
+# Github actions and badges
+
+![dev_test](https://github.com/dmijatovic/github-ci-demo/workflows/DEV_TEST/badge.svg?branch=dev&event=push)
+[![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8F%20%20%E2%97%8B-orange)](https://fair-software.eu)
+![docker](https://github.com/dmijatovic/github-ci-demo/actions/workflows/docker.yml/badge.svg)
+![check-code-coverage](https://img.shields.io/badge/code--coverage-80%25-brightgreen)
 
 This repo is testing some github action approaches based on [this Udemy training](https://udemy.com/course/github-actions/learn)
 
