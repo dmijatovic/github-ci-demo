@@ -1,8 +1,7 @@
 ![](https://github.com/dmijatovic/github-ci-demo/workflows/DEV_TEST/badge.svg?branch=dev&event=push)
 [![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8F%20%20%E2%97%8B-orange)](https://fair-software.eu)
-
 ![](https://github.com/dmijatovic/github-ci-demo/actions/workflows/docker.yml/badge.svg)
-![](https://github.com/dmijatovic/github-ci-demo/actions/workflows/on-push-to-dev.yml/badge.svg)
+![check-code-coverage](https://img.shields.io/badge/code--coverage-80%-brightgreen)
 
 # Github actions
 
@@ -127,4 +126,16 @@ The github bages with the last status of running actions can be created. [Offici
 ```md
 <!-- add workfolow badge, it uses workflow name-->
 ![](https://github.com/dmijatovic/github-ci-demo/actions/workflows/docker.yml/badge.svg)
+```
+
+## Check code coverage
+
+To only have a test coverage badge there are few NPM solutions. All are related to javascript testing.
+
+- [jest-code-coverage](https://github.com/pamepeixinho/jest-coverage-badges): makes Jest coverage badges
+- [check-code-coverage](https://github.com/bahmutov/check-code-coverage#readme): uses shields.io to create badge.
+
+```md
+<!-- manually provide badge -->
+![check-code-coverage](https://img.shields.io/badge/code--coverage-80%-brightgreen)
 ```
