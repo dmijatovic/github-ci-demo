@@ -3,9 +3,7 @@
 
 ![](https://github.com/dmijatovic/github-ci-demo/actions/workflows/docker.yml/badge.svg)
 
-![](https://github.com/dmijatovic/github-ci-demo/actions/workflows/release-manual.yml/badge.svg)
-
-![](https://github.com/dmijatovic/github-ci-demo/workflows/CUSTOM_TITLE/badge.svg?branch=master&event=push)
+![CUSTOM-TITLE](https://github.com/dmijatovic/github-ci-demo/workflows/CUSTOM-TITLE/badge.svg?branch=master&event=push)
 
 # Github actions
 
