@@ -1,4 +1,4 @@
-name: Docker containers
+name: Docker images
 
 on:
   push:

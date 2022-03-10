@@ -1,6 +1,9 @@
 ![Test dev](https://github.com/dmijatovic/github-ci-demo/workflows/DEV_TEST/badge.svg?branch=dev&event=push)
 [![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8F%20%20%E2%97%8B-orange)](https://fair-software.eu)
-![Docker](https://github.com/dmijatovic/github-ci-demo/actions/workflows/docker.yml/badge.svg)
+
+![](https://github.com/dmijatovic/github-ci-demo/actions/workflows/docker.yml/badge.svg)
+
+![](https://github.com/dmijatovic/github-ci-demo/actions/workflows/release-manual.yml/badge.svg)
 
 # Github actions
 
@@ -115,4 +118,14 @@ git tag -a {tag} -m {tag}
 git push --tags
 # push commits and tags at the same time (not sure this works as exepected)
 git push --follow-tags
+
+```
+
+## Github badges
+
+The github bages with the last status of running actions can be created. [Official documentation](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)
+
+```md
+<!-- add workfolow badge, it uses workflow name-->
+![](https://github.com/dmijatovic/github-ci-demo/actions/workflows/docker.yml/badge.svg)
 ```
