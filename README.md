@@ -2,8 +2,7 @@
 [![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8F%20%20%E2%97%8B-orange)](https://fair-software.eu)
 
 ![](https://github.com/dmijatovic/github-ci-demo/actions/workflows/docker.yml/badge.svg)
-
-![CUSTOM-TITLE](https://github.com/dmijatovic/github-ci-demo/workflows/CUSTOM-TITLE/badge.svg?branch=master&event=push)
+![](https://github.com/dmijatovic/github-ci-demo/actions/workflows/on-push-to-dev.yml/badge.svg)
 
 # Github actions
 
