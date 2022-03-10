@@ -1,4 +1,4 @@
-# more info about on schdule actions
+# more info about on schedule actions
 # https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#onschedule
 name: Shell commands on schedule
 
