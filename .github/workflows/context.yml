@@ -1,12 +1,29 @@
 name: Context list
 
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - skip-this
+  pull_request:
+  issues:
 
 jobs:
-  log-contexts:
+  contexts_to_log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
+      - name: Log job context
+        run: echo '${{ toJSON(job) }}'
+      - name: Log steps context
+        run: echo '${{ toJSON(steps) }}'
+      - name: Log runner context
+        run: echo '${{ toJSON(runner) }}'
+      - name: Log strategy context
+        run: echo '${{ toJSON(strategy) }}'
+      - name: Log matrix context
+        run: echo '${{ toJSON(matrix) }}'
+  log_contexts:
     runs-on: ubuntu-latest
     steps:
       - name: Log Github context
